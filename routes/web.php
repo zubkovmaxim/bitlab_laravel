@@ -14,10 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd(123);
+    return view('welcome');
 });
 
 
 Route::get('/hello', function(){
-    return view('home');
+    $name = 'Max';
+    return view('home',array(
+        'name' => $name,
+    ));
+});
+
+Route::get('/send', function(){
+   return view('send');
+});
+
+Route::post('getData', function(){
+    dd($_POST);
 });
