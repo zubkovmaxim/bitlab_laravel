@@ -34,3 +34,5 @@ Route::post('getData', function(){
 });
 
 Route::get('/main/{slug}', 'App\Http\Controllers\MainController@index');
+
+Route::resource('/posts','App\Http\Controllers\PostController');
