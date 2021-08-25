@@ -20,6 +20,7 @@ class PostController extends Controller
 
     public function index()
     {
+        dd(config());
         return view('posts.index');
     }
 
