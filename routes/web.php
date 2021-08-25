@@ -32,3 +32,5 @@ Route::get('/send', function(){
 Route::post('getData', function(){
     dd($_POST);
 });
+
+Route::get('/main/{slug}', 'App\Http\Controllers\MainController@index');
