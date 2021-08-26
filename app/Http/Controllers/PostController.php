@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -20,6 +21,13 @@ class PostController extends Controller
 
     public function index()
     {
+
+        DB::table('posts')->insert([
+            'title' => 'kayla@example.com',
+            'content' => '132412'
+        ]);
+        $users = DB::table('posts')->get();
+        dd($users);
         dd(config());
         return view('posts.index');
     }
