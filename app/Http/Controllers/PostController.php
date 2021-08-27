@@ -21,15 +21,23 @@ class PostController extends Controller
 
     public function index()
     {
+//        $data = DB::table('country')->get();
+//        $data = DB::table('country')->limit(4)->get()->sortBy('Continent');
+//        $data = DB::table('country')->select('Name','Continent')->get();
+//        $data = DB::table('country')->select('Name','Continent')->first();
+//        $data = DB::table('country')->select('Name','Continent')->orderBy('Name','DESC')->first();
+//        $city = DB::table('city')->select('Name', 'Id')->find('2');
+//        $city = DB::table('city')->select('Name', 'Id')->where('id', '=', '2');
+//        $contry = DB::table('country')->limit(10)->pluck('Name');
+//        $contry = DB::table('country')->count();
+//        $contry = DB::table('country')->max('Name','population');
+//        $contry = DB::table('city')->select('countryCode')->distinct()->get();
+        $data = DB::table('city')->select('city.ID', 'city.Name as city_name', 'country.code', 'country.Name as country_name')->limit(10)->join('country','city.CountryCode','=','country.code')->orderBy('city.id')->get();
+        dd($data);
 
-        DB::table('posts')->insert([
-            'title' => 'kayla@example.com',
-            'content' => '132412'
-        ]);
-        $users = DB::table('posts')->get();
-        dd($users);
-        dd(config());
-        return view('posts.index');
+
+
+
     }
 
     /**
